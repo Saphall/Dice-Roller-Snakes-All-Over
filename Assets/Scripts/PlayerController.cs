@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 0;   
+    public float speed = 0;
+    public TextMeshProUGUI countText;
+    public GameObject setWinner;
     private Rigidbody rb;
-
+    private int count ;
     private float movementX;
     private float movementY;
 
@@ -15,6 +18,13 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        count = 0;
+        SetCountText();
+        setWinner.SetActive(false);
+    }
+
+    void SetCountText(){
+      countText.text = "Score: "+count.ToString();
     }
 
     private void OnMove(InputValue movementValue)
@@ -31,5 +41,16 @@ public class PlayerController : MonoBehaviour
 
         rb.AddForce(movement * speed);
     }
+
+    private void OnTriggerEnter(Collider other){
+     if (other.gameObject.CompareTag("PickUp"))
+      {
+        other.gameObject.SetActive(false);
+        count = count + 1;
+        SetCountText();
+        if (count==6){
+        setWinner.SetActive(true);}
+     }
+     }
 
 }
