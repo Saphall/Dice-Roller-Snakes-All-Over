@@ -9,6 +9,18 @@ EditorBuildSettings:
     path: Assets/Template/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
   - enabled: 1
-    path: Assets/Scenes/RollBall.unity
-    guid: c45ccc6f9b401442eaba30641b47f3db
+    path: Assets/Scenes/Menu.unity
+    guid: 9f5a386df44b15d24bd4717846e2fbed
+  - enabled: 1
+    path: Assets/Scenes/Level-1.unity
+    guid: c99c4154fe5f34bc798f5d652d5ff441
+  - enabled: 1
+    path: Assets/Scenes/Level-2.unity
+    guid: 70789573241a73b4d8d31b0f0f9e1923
+  - enabled: 1
+    path: Assets/Scenes/Level-3.unity
+    guid: 1f5cc7a29994d2344aa14438b00370c1
+  - enabled: 1
+    path: Assets/Scenes/Credit.unity
+    guid: e7ffaf42be736115fbe9c06a04e245ef
   m_configObjects: {}

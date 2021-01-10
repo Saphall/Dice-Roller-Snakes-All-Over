@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public float restartDelay = 1f; 
     public float speed = 0;
     public TextMeshProUGUI countText;
     public GameObject setWinner;
+    public GameObject snakeAttack;
     private Rigidbody rb;
     private int count ;
     private float movementX;
@@ -18,13 +21,13 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        count = 0;
-        SetCountText();
-        setWinner.SetActive(false);
+        count = 1;
+        // SetCountText();
+       // setWinner.SetActive(false);
     }
 
     void SetCountText(){
-      countText.text = "Score: "+count.ToString();
+      countText.text = "LEVEL "+count.ToString();
     }
 
     private void OnMove(InputValue movementValue)
@@ -47,10 +50,34 @@ public class PlayerController : MonoBehaviour
       {
         other.gameObject.SetActive(false);
         count = count + 1;
-        SetCountText();
-        if (count==6){
-        setWinner.SetActive(true);}
+        // SetCountText();
+        if (count==2){
+          speed = 0;
+          Invoke("Win",restartDelay);
+      
+       }
      }
+    }
+
+     void OnCollisionEnter(Collision info){
+          if (info.collider.tag == "Snakes"){
+            speed=0;
+           Invoke("Attack",restartDelay);
+             
+          }
      }
+      
+     public void Attack(){
+      snakeAttack.SetActive(true);
+     // Invoke("restart",restartDelay);
+     }
+      
+     public void Win()
+     {
+       setWinner.SetActive(true);
+       //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+      // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    // 
+    }
 
 }
