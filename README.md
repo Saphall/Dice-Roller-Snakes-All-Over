@@ -1,5 +1,5 @@
 # Dice-Roller-Snakes-All-Over
-Maze Roller : 3D Game | Snake Attack Alert !!
+3D Game | Maze Solving | Snake Attack Alert !!
 
 <hr>
 Unity version: 2019.4.17f1
