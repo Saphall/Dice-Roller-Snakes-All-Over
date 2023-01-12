@@ -9,4 +9,5 @@ Unity version: 2019.4.17f1
 
 <img src="SnakeAllOver.png">
 <hr>
-You can see the demo of the game at : https://www.youtube.com/watch?v=zx-O6bd2Dqk
+
+**DEMO VIDEO** : [Dice-Roller-Snakes-All-Over-Demo](https://www.youtube.com/watch?v=zx-O6bd2Dqk)
